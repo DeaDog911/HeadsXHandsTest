@@ -7,12 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import org.deadog.exceptions.InvalidCreatureArgumentException;
+import org.deadog.controllers.MainController;
 import org.deadog.utils.PropertiesReader;
 import org.deadog.exceptions.PropertyException;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.Random;
 
 
 public class Main extends Application {
@@ -37,7 +34,10 @@ public class Main extends Application {
             loader.setLocation(getClass().getResource("/mainScene.fxml"));
             stage.setResizable(false);
             Parent root = loader.load();
-            stage.setScene(new Scene(root));
+            MainController mainController = loader.getController();
+            Scene scene = new Scene(root);
+            scene.setOnKeyPressed(mainController::keyPressed);
+            stage.setScene(scene);
             stage.show();
         } catch (LoadException e) {
             System.err.println("Ошибка загрузки");

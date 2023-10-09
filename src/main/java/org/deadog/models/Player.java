@@ -20,7 +20,7 @@ public class Player extends Creature {
         System.out.println("Больше нельзя исцелиться (");
     }
 
-    // Игрок может исцелиться случайным образом, когда его здоровье падает ниже 30 процентов от максимума
+    // Игрок может исцелиться случайным образом, когда его здоровь опускается ниже 30 процентов от максимума
     @Override
     public void takeDamage(int damage) {
         super.takeDamage(damage);

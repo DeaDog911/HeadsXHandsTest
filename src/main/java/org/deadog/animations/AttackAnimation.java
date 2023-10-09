@@ -22,7 +22,7 @@ public class AttackAnimation extends Transition {
         this.creature = creature;
 
         creature.getImageView().setImage(creature.getAttackImage());
-        setCycleDuration(Duration.millis(1500));
+        setCycleDuration(Duration.millis(1000));
         setOnFinished(actionEvent -> {
             creature.getImageView().setImage(creature.getIdleImage());
             creature.getImageView().setViewport(idleRectangle);
